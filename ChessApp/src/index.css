@@ -90,3 +90,28 @@ body {
 .promotion-options button:hover {
   transform: scale(1.1);
 }
+
+.move-history {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Center the buttons vertically */
+  margin-top: 20px; /* Add some spacing above the buttons */
+  gap: 10px; /* Add spacing between the buttons */
+}
+
+.move-history button {
+  background-color: #1b2128; /* Blue background */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Add padding for a nicer look */
+  font-size: 16px; /* Increase font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Add hover effects */
+}
+
+.move-history button:hover {
+  background-color: #121820; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+

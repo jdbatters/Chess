@@ -17,6 +17,7 @@ import {
   checkForStalemate,
   pawnPromotion,
 } from "./GameLogic";
+import NavigateMoveHistory from "./NavigateMoveHistory";
 
 const initialBoard = [
   [
@@ -87,6 +88,8 @@ function ChessApp() {
   const [isWhiteInCheckmate, setIsWhiteInCheckmate] = useState(false);
   const [isBlackInCheckmate, setIsBlackInCheckmate] = useState(false);
   const [pendingMove, setPendingMove] = useState(null);
+  const [boardHistory, setBoardHistory] = useState([initialBoard]);
+  const [moveCount, setMoveCount] = useState(0);
 
   useEffect(() => {
     if (pendingMove) {
@@ -112,6 +115,10 @@ function ChessApp() {
 
     // Update the board state
     setBoard(newBoard);
+    setBoardHistory([...boardHistory, newBoard]);
+    setMoveCount(moveCount + 1);
+    console.log(boardHistory);
+    console.log(moveCount);
 
     // Update the last move
     const lastMove = {
@@ -446,6 +453,10 @@ function ChessApp() {
           />
         )}
       </div>
+      <NavigateMoveHistory
+        moveHistory={boardHistory}
+        currentMoveIndex={moveCount}
+      />
     </div>
   );
 }
